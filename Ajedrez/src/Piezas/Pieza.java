@@ -15,8 +15,8 @@ public abstract class Pieza {
     private boolean Blanca;
     private boolean viva=true;
 
-    public Pieza(boolean color) {
-        this.Blanca = color;
+    public Pieza(boolean blanca) {
+        this.Blanca = blanca;
     }
 
     public boolean isBlanca() {

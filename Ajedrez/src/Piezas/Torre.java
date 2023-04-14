@@ -13,20 +13,42 @@ import ajedrez.Tablero;
  */
 public class Torre extends Pieza {
 
-    public Torre(boolean color) {
-        super(color);
+    public Torre(boolean blanca) {
+        super(blanca);
     }
 
     @Override
     public boolean Mover(Tablero t, Casilla inicio, Casilla fin) {
+        boolean posible = true;
         if (this.isBlanca() == fin.getPieza().isBlanca()) {
-            return false;
+            posible = false;
         }
-        for (int lineaX = inicio.getX(); lineaX <= fin.getX(); lineaX++) {
-            if () {
-                return false;
+        if (inicio.getY() < fin.getY()) {
+            for (int lineaY = inicio.getY(); lineaY <= fin.getY(); lineaY++) {
+                if (t.PiezaTablero(inicio.getX(), lineaY)) {
+                    posible = false;
+                }
+            }
+        }else{
+            for (int lineaY = inicio.getY(); lineaY >= fin.getY(); lineaY--) {
+                if (t.PiezaTablero(inicio.getX(), lineaY)) {
+                    posible = false;
+                }
             }
         }
-
+        if (inicio.getX() < fin.getX()) {
+            for (int lineaX = inicio.getX(); lineaX <= fin.getX(); lineaX++) {
+                if (t.PiezaTablero(lineaX, inicio.getY())) {
+                    posible = false;
+                }
+            }
+        }else{
+            for (int lineaX = inicio.getX(); lineaX >= fin.getX(); lineaX--) {
+                if (t.PiezaTablero(lineaX, inicio.getY())) {
+                    posible = false;
+                }
+            }
+        }
+        return posible;
     }
 }

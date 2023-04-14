@@ -13,8 +13,8 @@ import ajedrez.Tablero;
  */
 public class Peon extends Pieza {
 
-    public Peon(boolean color) {
-        super(color);
+    public Peon(boolean blanca) {
+        super(blanca);
     }
 
     @Override

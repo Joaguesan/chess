@@ -13,8 +13,8 @@ import ajedrez.Tablero;
  */
 public class Caballo extends Pieza {
     
-    public Caballo(boolean color) {
-        super(color);
+    public Caballo(boolean blanca) {
+        super(blanca);
     }
 
     @Override
@@ -24,6 +24,6 @@ public class Caballo extends Pieza {
         }
         int x = Math.abs(inicio.getX() - fin.getX());
         int y= Math.abs(inicio.getY() - fin.getY());
-        return x * y == 2;        
+        return x * y == 2;
     }
 }
